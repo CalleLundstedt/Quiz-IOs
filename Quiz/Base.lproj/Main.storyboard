@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFO-PF-ARs">
+                                <rect key="frame" x="257" y="127" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rg-e8-WiT">
+                                <rect key="frame" x="261" y="387" width="78" height="30"/>
+                                <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <segue destination="K0m-xf-GoU" kind="popoverPresentation" popoverAnchorView="9Rg-e8-WiT" id="cOm-Lu-Hq1">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Rg-e8-WiT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KXc-or-gCN"/>
+                            <constraint firstItem="XFO-PF-ARs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PKw-G7-sSh"/>
+                            <constraint firstItem="XFO-PF-ARs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="107" id="a4H-up-kuE"/>
+                            <constraint firstItem="9Rg-e8-WiT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="367" id="brM-jK-RDV"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="7" y="282"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="G2u-Ib-881">
+            <objects>
+                <viewController id="K0m-xf-GoU" customClass="ViewController2" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T6c-Tb-ekK"/>
+                        <viewControllerLayoutGuide type="bottom" id="ilY-YY-ngN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MPr-sS-fuS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7b3-dp-DhF">
+                                <rect key="frame" x="20" y="304" width="560" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time left: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMW-Lg-m11">
+                                <rect key="frame" x="244" y="245" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PID-4M-Sd9">
+                                <rect key="frame" x="329" y="245" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HMW-Lg-m11" firstAttribute="centerX" secondItem="MPr-sS-fuS" secondAttribute="centerX" constant="-17.5" id="6PE-rX-mZk"/>
+                            <constraint firstItem="PID-4M-Sd9" firstAttribute="centerX" secondItem="MPr-sS-fuS" secondAttribute="centerX" constant="50" id="BKZ-OV-HUw"/>
+                            <constraint firstItem="7b3-dp-DhF" firstAttribute="centerX" secondItem="MPr-sS-fuS" secondAttribute="centerX" id="Joe-9Y-uWd"/>
+                            <constraint firstItem="PID-4M-Sd9" firstAttribute="top" secondItem="T6c-Tb-ekK" secondAttribute="bottom" constant="225" id="aVi-qS-iPG"/>
+                            <constraint firstItem="7b3-dp-DhF" firstAttribute="top" secondItem="T6c-Tb-ekK" secondAttribute="bottom" constant="284" id="cfY-yB-Qwp"/>
+                            <constraint firstItem="HMW-Lg-m11" firstAttribute="top" secondItem="T6c-Tb-ekK" secondAttribute="bottom" constant="225" id="dU3-LY-oDJ"/>
+                            <constraint firstItem="7b3-dp-DhF" firstAttribute="leading" secondItem="MPr-sS-fuS" secondAttribute="leadingMargin" id="oEk-WZ-Fb8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="timeLeftBar" destination="7b3-dp-DhF" id="bjd-RM-Mz3"/>
+                        <outlet property="timeLeftLabel" destination="PID-4M-Sd9" id="Prb-p6-mo3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uhe-id-4YE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677" y="282"/>
         </scene>
     </scenes>
 </document>
