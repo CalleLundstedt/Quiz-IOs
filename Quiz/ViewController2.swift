@@ -21,7 +21,7 @@ class ViewController2: UIViewController {
         super.viewDidLoad()
         timeLeftBar.setProgress(progress, animated: false)
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "countDown", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countDown", userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
     }
 
@@ -32,21 +32,21 @@ class ViewController2: UIViewController {
     
     func countDown() {
         
-        if(timeLeft > 0) {
-            timeLeft -= 0.5
+            timeLeft -= 0.1
             
             progress = timeLeft/10.0
             
             update()
-        }
-        else {
+        if(timeLeft <= 0) {
             timer.invalidate()
         }
     }
     
     func update() {
         timeLeftBar.setProgress(progress, animated: true)
-        timeLeftLabel.text = "\(timeLeft)"
+        if(timeLeft%1 < 0.1){
+            timeLeftLabel.text = "\(Int(timeLeft))"
+        }
     }
 
     
