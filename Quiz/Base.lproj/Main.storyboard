@@ -59,7 +59,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7b3-dp-DhF">
+                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="7b3-dp-DhF">
                                 <rect key="frame" x="20" y="28" width="560" height="2"/>
                                 <color key="trackTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
@@ -125,6 +125,12 @@
                                 <rect key="frame" x="408" y="440" width="80" height="30"/>
                                 <state key="normal" title="Alternativ 4"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teh-VC-zVF">
+                                <rect key="frame" x="88" y="103" width="400" height="200"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -135,9 +141,11 @@
                             <constraint firstItem="oMJ-Px-utl" firstAttribute="leading" secondItem="MPr-sS-fuS" secondAttribute="leadingMargin" constant="68" id="8Rh-vJ-hWn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cb6-YJ-fiy" secondAttribute="trailing" id="9Lt-ij-iBK"/>
                             <constraint firstItem="tnc-2a-EVq" firstAttribute="top" secondItem="oMJ-Px-utl" secondAttribute="bottom" constant="51" id="ECq-y0-lhO"/>
+                            <constraint firstItem="Teh-VC-zVF" firstAttribute="top" secondItem="7b3-dp-DhF" secondAttribute="bottom" constant="73" id="Fx6-nE-8Nl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4oS-zy-7JG" secondAttribute="trailing" constant="92" id="Ger-rE-pnE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7b3-dp-DhF" secondAttribute="trailing" id="I8m-j3-oWv"/>
                             <constraint firstItem="oMJ-Px-utl" firstAttribute="centerY" secondItem="MPr-sS-fuS" secondAttribute="centerY" constant="74" id="NL7-ot-DUN"/>
+                            <constraint firstItem="Teh-VC-zVF" firstAttribute="centerX" secondItem="MPr-sS-fuS" secondAttribute="centerX" constant="-12" id="OMs-Z0-0Ti"/>
                             <constraint firstItem="7b3-dp-DhF" firstAttribute="leading" secondItem="MPr-sS-fuS" secondAttribute="leadingMargin" id="PNJ-4z-WP1"/>
                             <constraint firstItem="CxE-Ks-9pN" firstAttribute="top" secondItem="7b3-dp-DhF" secondAttribute="bottom" constant="18" id="Ym2-jW-0bC"/>
                             <constraint firstItem="tnc-2a-EVq" firstAttribute="leading" secondItem="MPr-sS-fuS" secondAttribute="leadingMargin" constant="67" id="Z0e-0O-bam"/>
@@ -152,7 +160,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="altFour" destination="Kmg-L9-RC1" id="Gf3-RM-Wdf"/>
+                        <outlet property="altOne" destination="oMJ-Px-utl" id="HrR-2r-6LL"/>
+                        <outlet property="altThree" destination="4oS-zy-7JG" id="bDi-6a-JUz"/>
+                        <outlet property="altTwo" destination="tnc-2a-EVq" id="xOv-Cq-Y52"/>
                         <outlet property="pointsLabel" destination="cb6-YJ-fiy" id="Fmb-po-BLr"/>
+                        <outlet property="questionLabel" destination="Teh-VC-zVF" id="V0v-u5-895"/>
                         <outlet property="timeLeftBar" destination="7b3-dp-DhF" id="bjd-RM-Mz3"/>
                         <outlet property="timeLeftLabel" destination="PID-4M-Sd9" id="Prb-p6-mo3"/>
                     </connections>

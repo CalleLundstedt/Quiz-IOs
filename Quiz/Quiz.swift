@@ -10,4 +10,16 @@ import Foundation
 
 class Quiz {
     
+    var points: Int
+    var questions: [Question]
+    
+    init() {
+        points = 0
+        questions = []
+        questions.append(Question(question: "Vad heter Calle?", answers: [Answer(answer: "Calle", correct: true), Answer(answer: "Svett", correct: false), Answer(answer: "Heh", correct: false), Answer(answer: "Huh", correct: false)]))
+    }
+    
+    func returnQuestions() -> [Question] {
+        return questions
+    }
 }
