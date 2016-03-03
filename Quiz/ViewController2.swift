@@ -12,6 +12,8 @@ class ViewController2: UIViewController {
 
     @IBOutlet weak var timeLeftBar: UIProgressView!
     @IBOutlet weak var timeLeftLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
+    
     
     var timer = NSTimer()
     var timeLeft: Float = 10
@@ -30,6 +32,12 @@ class ViewController2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func rightAnswer(sender: UIButton) {
+        timer.invalidate()
+        pointsLabel.text = "\(Int(timeLeft*2))"
+        sender.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+    }
+    
     func countDown() {
         
             timeLeft -= 0.1
@@ -39,6 +47,10 @@ class ViewController2: UIViewController {
             update()
         if(timeLeft <= 0) {
             timer.invalidate()
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("MainMenu")
+            self.presentViewController(nextViewController, animated:true, completion:nil)
         }
     }
     
