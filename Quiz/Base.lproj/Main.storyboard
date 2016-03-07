@@ -109,21 +109,30 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMJ-Px-utl">
                                 <rect key="frame" x="88" y="359" width="77" height="30"/>
                                 <state key="normal" title="Alternativ 1"/>
+                                <connections>
+                                    <action selector="checkAnswer:" destination="K0m-xf-GoU" eventType="touchUpInside" id="5kg-Bk-wQf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnc-2a-EVq">
                                 <rect key="frame" x="87" y="440" width="79" height="30"/>
                                 <state key="normal" title="Alternativ 2"/>
+                                <connections>
+                                    <action selector="checkAnswer:" destination="K0m-xf-GoU" eventType="touchUpInside" id="6YH-So-E2m"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oS-zy-7JG">
                                 <rect key="frame" x="409" y="359" width="79" height="30"/>
                                 <state key="normal" title="Alternativ 3"/>
                                 <connections>
-                                    <action selector="rightAnswer:" destination="K0m-xf-GoU" eventType="touchUpInside" id="n7u-SQ-aM7"/>
+                                    <action selector="checkAnswer:" destination="K0m-xf-GoU" eventType="touchUpInside" id="Ab0-pf-LPM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmg-L9-RC1">
                                 <rect key="frame" x="408" y="440" width="80" height="30"/>
                                 <state key="normal" title="Alternativ 4"/>
+                                <connections>
+                                    <action selector="checkAnswer:" destination="K0m-xf-GoU" eventType="touchUpInside" id="jWD-fh-Lf2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teh-VC-zVF">
                                 <rect key="frame" x="88" y="103" width="400" height="200"/>

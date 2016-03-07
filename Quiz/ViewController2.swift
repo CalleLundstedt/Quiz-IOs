@@ -23,6 +23,7 @@ class ViewController2: UIViewController {
     var timer = NSTimer()
     var timeLeft: Float = 10
     var progress: Float = 1.0
+    var currentQuestion: Int = 0
     var quiz: Quiz!
     
     override func viewDidLoad() {
@@ -30,8 +31,6 @@ class ViewController2: UIViewController {
         
         quiz = Quiz()
         updateQuestion()
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countDown", userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,11 +38,50 @@ class ViewController2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func rightAnswer(sender: UIButton) {
-        timer.invalidate()
-        pointsLabel.text = "\(Int(timeLeft*2))"
-        sender.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+    @IBAction func checkAnswer(sender: UIButton) {
+        if(timer.valid) {
+            timer.invalidate()
+            if(sender == altOne) {
+                if(quiz.questions[currentQuestion].answers[0].correct){
+                    altOne.backgroundColor = UIColor.greenColor()
+                    quiz.points += Int(timeLeftBar.progress*10)
+                    currentQuestion++
+                } else {
+                    altOne.backgroundColor = UIColor.redColor()
+                }
+            }
+            if(sender == altTwo) {
+                if(quiz.questions[currentQuestion].answers[1].correct){
+                    altOne.backgroundColor = UIColor.greenColor()
+                    quiz.points += Int(timeLeftBar.progress*10)
+                    currentQuestion++
+                } else {
+                    altOne.backgroundColor = UIColor.redColor()
+                }
+            }
+            if(sender == altThree) {
+                if(quiz.questions[currentQuestion].answers[2].correct){
+                    altOne.backgroundColor = UIColor.greenColor()
+                    quiz.points += Int(timeLeftBar.progress*10)
+                    currentQuestion++
+                } else {
+                    altOne.backgroundColor = UIColor.redColor()
+                }
+            }
+            if(sender == altFour) {
+                if(quiz.questions[currentQuestion].answers[3].correct){
+                    altOne.backgroundColor = UIColor.greenColor()
+                    quiz.points += Int(timeLeftBar.progress*10)
+                    currentQuestion++
+                } else {
+                    altOne.backgroundColor = UIColor.redColor()
+                }
+            }
+            updateQuestion()
+
+        }
     }
+    
     
     func countDown() {
         
@@ -69,12 +107,19 @@ class ViewController2: UIViewController {
     }
     
     func updateQuestion(){
-        questionLabel.text = quiz.questions[0].question
-        altOne.setTitle(quiz.questions[0].answers[0].answer, forState: .Normal)
-        altTwo.setTitle(quiz.questions[0].answers[1].answer, forState: .Normal)
-        altThree.setTitle(quiz.questions[0].answers[2].answer, forState: .Normal)
-        altFour.setTitle(quiz.questions[0].answers[3].answer, forState: .Normal)
+        pointsLabel.text = "\(quiz.points)"
+        questionLabel.text = quiz.questions[currentQuestion].question
+        altOne.setTitle(quiz.questions[currentQuestion].answers[0].answer, forState: .Normal)
+        altTwo.setTitle(quiz.questions[currentQuestion].answers[1].answer, forState: .Normal)
+        altThree.setTitle(quiz.questions[currentQuestion].answers[2].answer, forState: .Normal)
+        altFour.setTitle(quiz.questions[currentQuestion].answers[3].answer, forState: .Normal)
+        startTimer()
     }
-
+    
+    func startTimer() {
+        timeLeft = 10
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countDown", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+    }
     
 }

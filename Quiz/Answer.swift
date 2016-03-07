@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Answer {
+struct Answer {
     var answer: String
     var correct: Bool
     
