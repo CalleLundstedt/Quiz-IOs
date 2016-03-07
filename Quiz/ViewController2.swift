@@ -24,10 +24,13 @@ class ViewController2: UIViewController {
     var timeLeft: Float = 10
     var progress: Float = 1.0
     var currentQuestion: Int = 0
+    var buttons: [UIButton] = []
     var quiz: Quiz!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buttons = [altOne, altTwo, altThree, altFour]
         
         quiz = Quiz()
         updateQuestion()
@@ -45,39 +48,43 @@ class ViewController2: UIViewController {
                 if(quiz.questions[currentQuestion].answers[0].correct){
                     altOne.backgroundColor = UIColor.greenColor()
                     quiz.points += Int(timeLeftBar.progress*10)
-                    currentQuestion++
                 } else {
                     altOne.backgroundColor = UIColor.redColor()
                 }
+                currentQuestion++
             }
             if(sender == altTwo) {
                 if(quiz.questions[currentQuestion].answers[1].correct){
-                    altOne.backgroundColor = UIColor.greenColor()
+                    altTwo.backgroundColor = UIColor.greenColor()
                     quiz.points += Int(timeLeftBar.progress*10)
-                    currentQuestion++
                 } else {
-                    altOne.backgroundColor = UIColor.redColor()
+                    altTwo.backgroundColor = UIColor.redColor()
                 }
+                currentQuestion++
             }
             if(sender == altThree) {
                 if(quiz.questions[currentQuestion].answers[2].correct){
-                    altOne.backgroundColor = UIColor.greenColor()
+                    altThree.backgroundColor = UIColor.greenColor()
                     quiz.points += Int(timeLeftBar.progress*10)
-                    currentQuestion++
                 } else {
-                    altOne.backgroundColor = UIColor.redColor()
+                    altThree.backgroundColor = UIColor.redColor()
                 }
+                currentQuestion++
             }
             if(sender == altFour) {
                 if(quiz.questions[currentQuestion].answers[3].correct){
-                    altOne.backgroundColor = UIColor.greenColor()
+                    altFour.backgroundColor = UIColor.greenColor()
                     quiz.points += Int(timeLeftBar.progress*10)
-                    currentQuestion++
                 } else {
-                    altOne.backgroundColor = UIColor.redColor()
+                    altFour.backgroundColor = UIColor.redColor()
                 }
+                currentQuestion++
             }
-            updateQuestion()
+            pointsLabel.text = "\(quiz.points)"
+            
+            if(currentQuestion <= (quiz.questions.count-1)){
+                updateQuestion()
+            }
 
         }
     }
@@ -91,11 +98,7 @@ class ViewController2: UIViewController {
             
         update()
         if(timeLeft <= 0) {
-            timer.invalidate()
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            
-            let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("MainMenu")
-            self.presentViewController(nextViewController, animated:true, completion:nil)
+           gotoMain()
         }
     }
     
@@ -107,13 +110,15 @@ class ViewController2: UIViewController {
     }
     
     func updateQuestion(){
-        pointsLabel.text = "\(quiz.points)"
+        
         questionLabel.text = quiz.questions[currentQuestion].question
         altOne.setTitle(quiz.questions[currentQuestion].answers[0].answer, forState: .Normal)
         altTwo.setTitle(quiz.questions[currentQuestion].answers[1].answer, forState: .Normal)
         altThree.setTitle(quiz.questions[currentQuestion].answers[2].answer, forState: .Normal)
         altFour.setTitle(quiz.questions[currentQuestion].answers[3].answer, forState: .Normal)
+        altFour.backgroundColor = UIColor.whiteColor()
         startTimer()
+        
     }
     
     func startTimer() {
@@ -122,4 +127,11 @@ class ViewController2: UIViewController {
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
     }
     
+    func gotoMain() {
+        timer.invalidate()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("MainMenu")
+        self.presentViewController(nextViewController, animated:true, completion:nil)
+    }
 }
