@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController2: UIViewController {
+class QuizController: UIViewController {
 
     @IBOutlet weak var timeLeftBar: UIProgressView!
     @IBOutlet weak var timeLeftLabel: UILabel!
@@ -31,7 +31,6 @@ class ViewController2: UIViewController {
         super.viewDidLoad()
         
         buttons = [altOne, altTwo, altThree, altFour]
-        
         quiz = Quiz()
         updateQuestion()
     }
@@ -43,49 +42,20 @@ class ViewController2: UIViewController {
     
     @IBAction func checkAnswer(sender: UIButton) {
         if(timer.valid) {
+            let index = buttons.indexOf(sender)
             timer.invalidate()
-            if(sender == altOne) {
-                if(quiz.questions[currentQuestion].answers[0].correct){
-                    altOne.backgroundColor = UIColor.greenColor()
-                    quiz.points += Int(timeLeftBar.progress*10)
-                } else {
-                    altOne.backgroundColor = UIColor.redColor()
-                }
-                currentQuestion++
+            if(quiz.questions[currentQuestion].answers[index!].correct) {
+                sender.backgroundColor = UIColor.greenColor()
+                quiz.points += Int(timeLeftBar.progress*10)
+            } else {
+                sender.backgroundColor = UIColor.redColor()
             }
-            if(sender == altTwo) {
-                if(quiz.questions[currentQuestion].answers[1].correct){
-                    altTwo.backgroundColor = UIColor.greenColor()
-                    quiz.points += Int(timeLeftBar.progress*10)
-                } else {
-                    altTwo.backgroundColor = UIColor.redColor()
-                }
-                currentQuestion++
-            }
-            if(sender == altThree) {
-                if(quiz.questions[currentQuestion].answers[2].correct){
-                    altThree.backgroundColor = UIColor.greenColor()
-                    quiz.points += Int(timeLeftBar.progress*10)
-                } else {
-                    altThree.backgroundColor = UIColor.redColor()
-                }
-                currentQuestion++
-            }
-            if(sender == altFour) {
-                if(quiz.questions[currentQuestion].answers[3].correct){
-                    altFour.backgroundColor = UIColor.greenColor()
-                    quiz.points += Int(timeLeftBar.progress*10)
-                } else {
-                    altFour.backgroundColor = UIColor.redColor()
-                }
-                currentQuestion++
-            }
+            currentQuestion++
             pointsLabel.text = "\(quiz.points)"
             
             if(currentQuestion <= (quiz.questions.count-1)){
                 updateQuestion()
             }
-
         }
     }
     
