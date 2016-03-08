@@ -25,13 +25,13 @@ class QuizController: UIViewController {
     var progress: Float = 1.0
     var currentQuestion: Int = 0
     var buttons: [UIButton] = []
-    var quiz: Quiz!
+    var quiz: Quiz?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(quiz!.questions.count)
         buttons = [altOne, altTwo, altThree, altFour]
-        quiz = Quiz()
         updateQuestion()
     }
 
@@ -44,16 +44,16 @@ class QuizController: UIViewController {
         if(timer.valid) {
             let index = buttons.indexOf(sender)
             timer.invalidate()
-            if(quiz.questions[currentQuestion].answers[index!].correct) {
+            if(quiz!.questions[currentQuestion].answers[index!].correct) {
                 sender.backgroundColor = UIColor.greenColor()
-                quiz.points += Int(timeLeftBar.progress*10)
+                quiz!.points += Int(timeLeftBar.progress*10)
             } else {
                 sender.backgroundColor = UIColor.redColor()
             }
             currentQuestion++
-            pointsLabel.text = "\(quiz.points)"
+            pointsLabel.text = "\(quiz!.points)"
             
-            if(currentQuestion <= (quiz.questions.count-1)){
+            if(currentQuestion <= (quiz!.questions.count-1)){
                 let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
                 dispatch_after(time, dispatch_get_main_queue()) {
                     self.updateQuestion()
@@ -83,9 +83,9 @@ class QuizController: UIViewController {
     
     func updateQuestion(){
         
-        questionLabel.text = quiz.questions[currentQuestion].question
+        questionLabel.text = quiz!.questions[currentQuestion].question
         for button in buttons {
-            button.setTitle(quiz.questions[currentQuestion].answers[buttons.indexOf(button)!].answer, forState: .Normal)
+            button.setTitle(quiz!.questions[currentQuestion].answers[buttons.indexOf(button)!].answer, forState: .Normal)
             button.backgroundColor = UIColor.whiteColor()
         }
         startTimer()
