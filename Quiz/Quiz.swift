@@ -18,7 +18,7 @@ class Quiz {
         questions = []
         questions.append(Question(question: "Vad heter Calle?", answers: [Answer(answer: "Calle", correct: true), Answer(answer: "Svett", correct: false), Answer(answer: "Heh", correct: false), Answer(answer: "Huh", correct: false)]))
         
-        questions.append(Question(question: "Vad heter Mallan af Brallan?", answers: [Answer(answer: "Calle", correct: false), Answer(answer: "Mulrisabethin", correct: true), Answer(answer: "Wabuu", correct: false), Answer(answer: "Snork", correct: false)]))
+        questions.append(Question(question: "Vad är 'grön' på engelska?", answers: [Answer(answer: "groun", correct: false), Answer(answer: "groen", correct: false), Answer(answer: "green", correct: true), Answer(answer: "Snork", correct: false)]))
     }
     
     func returnQuestions() -> [Question] {
