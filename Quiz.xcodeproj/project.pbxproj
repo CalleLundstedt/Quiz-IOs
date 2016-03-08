@@ -16,6 +16,7 @@
 		D0B8DF971C88C17A00F6F607 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B8DF961C88C17A00F6F607 /* Quiz.swift */; };
 		D0B8DF991C88C1C900F6F607 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B8DF981C88C1C900F6F607 /* Question.swift */; };
 		D0B8DF9B1C88C4A600F6F607 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B8DF9A1C88C4A600F6F607 /* Answer.swift */; };
+		D0BEDAE91C8ED02000CD1A70 /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BEDAE81C8ED02000CD1A70 /* QuestionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D0B8DF961C88C17A00F6F607 /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		D0B8DF981C88C1C900F6F607 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		D0B8DF9A1C88C4A600F6F607 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		D0BEDAE81C8ED02000CD1A70 /* QuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				D0B8DF961C88C17A00F6F607 /* Quiz.swift */,
 				D0B8DF981C88C1C900F6F607 /* Question.swift */,
 				D0B8DF9A1C88C4A600F6F607 /* Answer.swift */,
+				D0BEDAE81C8ED02000CD1A70 /* QuestionController.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BEDAE91C8ED02000CD1A70 /* QuestionController.swift in Sources */,
 				D0B8DF991C88C1C900F6F607 /* Question.swift in Sources */,
 				D0945B701C87499E00B1F753 /* ViewController.swift in Sources */,
 				D0945B6E1C87499E00B1F753 /* AppDelegate.swift in Sources */,

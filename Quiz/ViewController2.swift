@@ -54,7 +54,10 @@ class QuizController: UIViewController {
             pointsLabel.text = "\(quiz.points)"
             
             if(currentQuestion <= (quiz.questions.count-1)){
-                updateQuestion()
+                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
+                dispatch_after(time, dispatch_get_main_queue()) {
+                    self.updateQuestion()
+                }
             }
         }
     }
@@ -63,10 +66,9 @@ class QuizController: UIViewController {
     func countDown() {
         
         timeLeft -= 0.1
-            
         progress = timeLeft/10.0
-            
         update()
+        
         if(timeLeft <= 0) {
            gotoMain()
         }
@@ -82,13 +84,11 @@ class QuizController: UIViewController {
     func updateQuestion(){
         
         questionLabel.text = quiz.questions[currentQuestion].question
-        altOne.setTitle(quiz.questions[currentQuestion].answers[0].answer, forState: .Normal)
-        altTwo.setTitle(quiz.questions[currentQuestion].answers[1].answer, forState: .Normal)
-        altThree.setTitle(quiz.questions[currentQuestion].answers[2].answer, forState: .Normal)
-        altFour.setTitle(quiz.questions[currentQuestion].answers[3].answer, forState: .Normal)
-        altFour.backgroundColor = UIColor.whiteColor()
+        for button in buttons {
+            button.setTitle(quiz.questions[currentQuestion].answers[buttons.indexOf(button)!].answer, forState: .Normal)
+            button.backgroundColor = UIColor.whiteColor()
+        }
         startTimer()
-        
     }
     
     func startTimer() {

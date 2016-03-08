@@ -31,19 +31,58 @@
                                     <segue destination="K0m-xf-GoU" kind="show" id="7ld-ds-q5j"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bor-Jk-xCc">
+                                <rect key="frame" x="253" y="444" width="93" height="30"/>
+                                <state key="normal" title="Add Question"/>
+                                <connections>
+                                    <segue destination="Yi6-5k-3px" kind="show" id="mVG-Ez-Jwx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Rg-e8-WiT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KXc-or-gCN"/>
                             <constraint firstItem="XFO-PF-ARs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PKw-G7-sSh"/>
+                            <constraint firstItem="bor-Jk-xCc" firstAttribute="top" secondItem="9Rg-e8-WiT" secondAttribute="bottom" constant="27" id="V2x-rW-VmU"/>
                             <constraint firstItem="XFO-PF-ARs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="107" id="a4H-up-kuE"/>
                             <constraint firstItem="9Rg-e8-WiT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="367" id="brM-jK-RDV"/>
+                            <constraint firstItem="bor-Jk-xCc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hGe-5K-lBD"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7" y="282"/>
+        </scene>
+        <!--Question Controller-->
+        <scene sceneID="oYg-k6-gwQ">
+            <objects>
+                <viewController id="Yi6-5k-3px" customClass="QuestionController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0c3-Ys-4vW"/>
+                        <viewControllerLayoutGuide type="bottom" id="3BW-CI-lAY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ILm-Bc-biF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3P-Nd-dWt">
+                                <rect key="frame" x="279" y="159" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D3P-Nd-dWt" firstAttribute="centerY" secondItem="ILm-Bc-biF" secondAttribute="centerY" constant="-130.5" id="Y2h-0n-O40"/>
+                            <constraint firstItem="D3P-Nd-dWt" firstAttribute="centerX" secondItem="ILm-Bc-biF" secondAttribute="centerX" id="yEi-Bb-Ns3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAN-pJ-Gb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="315" y="1085"/>
         </scene>
         <!--Quiz Controller-->
         <scene sceneID="G2u-Ib-881">
