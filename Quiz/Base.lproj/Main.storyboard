@@ -112,7 +112,7 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveQuestion" destination="Yi6-5k-3px" eventType="touchUpInside" id="a8N-Xj-qGC"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="fL7-oP-0s1"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="main" action="showViewController:sender:" id="fL7-oP-0s1"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x85-o4-TXT">
